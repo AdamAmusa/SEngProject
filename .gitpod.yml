@@ -1,0 +1,22 @@
+#image:
+#  file: .gitpod.Dockerfile
+
+tasks:
+#  - command: bundle install
+# Setup for grading, ignore
+  - name: Set up and test
+    init: | 
+      gem install bundler --version '1.17.3' 
+      rvm install 2.6.6
+      rvm use 2.6.6
+      bundle install --without production 
+    command: | 
+      rake db:migrate 
+      rake db:seed 
+      rake db:test:prepare 
+      cucumber 
+      rspec
+vscode:
+  extensions:
+    - alexkrechik.cucumberautocomplete@2.14.1:J/ljPrPn1S+KgN2xeXFE9A==  
+    - vayan.haml@1.0.1:6B6FSK2WBP2+DkvrUSTz4g==
