@@ -22,6 +22,7 @@ group :test do
 end
 group :production do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
 # Gems used only for assets and not required
@@ -36,3 +37,4 @@ gem 'jquery-rails'
 gem "ffi", "= 1.15.5"
 gem 'bootstrap', '~> 5.2.3'
 gem 'sassc-rails'
+gem 'bundler', '~> 1.17.3'
