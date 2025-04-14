@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '3.2.2'
+ruby '2.6.6'
 gem 'rails', '4.2.11'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.3.6'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'rspec-rails', '3.7.2'
