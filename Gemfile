@@ -34,3 +34,5 @@ gem 'jquery-rails'
 
 
 gem "ffi", "= 1.15.5"
+gem 'bootstrap', '~> 5.2.3'
+gem 'sassc-rails'
