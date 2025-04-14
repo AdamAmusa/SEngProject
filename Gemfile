@@ -42,5 +42,4 @@ gem 'uglifier', '>= 2.7.1'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.2.3'
-gem 'jquery-rails'
 gem 'sassc-rails'
