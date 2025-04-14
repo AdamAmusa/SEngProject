@@ -23,8 +23,8 @@ test: &test
 production:
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  database: db/production.sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000 5
 
 
 cucumber:
