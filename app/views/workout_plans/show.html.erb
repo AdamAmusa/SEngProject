@@ -1,0 +1,16 @@
+<h2> Workout plan for <em><%= @workout_plan.day %></em></h2>
+
+<ul>
+  <% @exercises.each do |exercise| %>
+    <li><strong><%= exercise.name %></strong> — Sets: <%= exercise.sets %>, Reps: <%= exercise.reps %></li>
+  <% end %>
+</ul>
+
+
+<div class="row">
+  <%= link_to 'Edit', edit_workout_plan_path(@workout_plan), :class => 'btn btn-primary col-2' %>
+<%= button_to 'Delete', workout_plan_path(@workout_plan),
+      method: :delete,
+      data: { confirm: 'Are you sure?' },
+      class: 'btn btn-danger col-2' %>  <%= link_to 'Back to Schedule', workout_plans_path, :class => 'btn btn-primary col-2' %>
+</div>

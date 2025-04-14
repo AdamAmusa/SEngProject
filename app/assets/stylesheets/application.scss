@@ -13,3 +13,28 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+
+
+
+.table {
+  width: 100%;
+  margin: auto;
+}
+
+th, td {
+  text-align: start;
+  font-size: 50px;
+}
+
+td {
+  padding-bottom: 24px;
+  padding-top: 24px;
+  
+}
+
+thead th{
+  border-bottom: 2px solid black;
+ 
+}

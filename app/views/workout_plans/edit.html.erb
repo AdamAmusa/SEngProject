@@ -1,0 +1,27 @@
+<h2>Edit Existing Workout Plan</h2>
+
+<%= form_for @workout_plan, class:'form' do |f| %>
+  <div class="mb-3">
+    <%= f.label :day, 'Day', class: 'col-form-label' %>
+    <%= f.text_field :day, class: 'form-control', disabled:true %>
+  </div>
+   <ul>
+    <%= f.fields_for :workouts do |workout_form| %>
+      <li>
+        <%= workout_form.label :name, 'Exercise', class: 'col-form-label' %>
+        <%= workout_form.text_field :name, class: 'form-control' %>
+
+        <%= workout_form.label :sets, 'Sets', class: 'col-form-label' %>
+        <%= workout_form.number_field :sets, class: 'form-control' %>
+
+        <%= workout_form.label :reps, 'Reps', class: 'col-form-label' %>
+        <%= workout_form.number_field :reps, class: 'form-control' %>
+      </li>
+      
+    <% end %>
+  </ul>
+
+  <br/>
+  <%= submit_tag 'Update Workout Info', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', workout_plan_path, class: 'btn btn-secondary' %>
+<% end %>

@@ -14,6 +14,8 @@ The project will address the module learning outcomes by focusing on the followi
 - Unit and Functional Testing
 - Test Coverage Metrics
 
+**Run app: bundle exec rails server -b 0.0.0.0**
+
 ## Requirements
 Using the Software Engineering principles mentioned above which were discussed in the lectures and lab assignments, you are required to create and deploy a SaaS application using the Ruby on Rails framework, and write a comprenehsive suite of automated tests. You are free to come up with your own idea for what your application will do, but it can be broadly similar in style to the RottenPotatoes movie review sample application we worked on throughout the course (though obviously it must be different, i.e. not based on movies). In terms of functionality your application can be relatively simple. The focus here is not on building a complex feature-heavy application, but rather on building a simple application using solid engineering principles with thorough automated tests. Your application must conform to the specification detailed below.
 

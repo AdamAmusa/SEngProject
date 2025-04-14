@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track': 'reload'  %>
+<h2>Workout Plan</h2>
+<table class="table table-striped col-md-12">
+ <thead>
+    <tr>
+      <th>Schedule</th>
+    </tr>
+ </thead>
+ <tbody>
+ <% @workout_plans.each do |workout_plan| %>
+  <tr>
+  <td class = "<%= 'bg-warning hilite' if Date.today.strftime('%A') == workout_plan.day %>">
+  <%= link_to workout_plan.day, workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>  
+ </td>       
+  </tr>     
+<% end %> 
+ </tbody>
+</table>
