@@ -17,8 +17,7 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'cucumber-rails-training-wheels'
-  gem 'simplecov', require: false
-  
+  gem 'simplecov', require: false 
 end
 group :production do
   gem 'pg', '~> 0.21.0'

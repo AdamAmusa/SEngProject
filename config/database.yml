@@ -25,6 +25,7 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
+  url: <%= ENV['DATABASE_URL'] %>
 
 
 cucumber:
