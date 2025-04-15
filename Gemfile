@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.0'
+ruby '2.7.3'
 gem 'rails', '4.2.10'
 
 # for Heroku deployment
