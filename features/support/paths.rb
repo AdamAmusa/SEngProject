@@ -15,6 +15,9 @@ module NavigationHelpers
 
     when /^the home\s?page$/
       '/'
+    when /^the show page for "(.*)"$/i
+      workout_plan_path(WorkoutPlan.find_by_day($1))  
+    
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
