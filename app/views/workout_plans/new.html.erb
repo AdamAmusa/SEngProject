@@ -1,0 +1,21 @@
+<h2>Create New Workout Plan</h2>
+
+<%= form_tag workout_plans_path, class: 'form' do %>
+  <%= label :workout_plan, :day, 'Day', class: 'col-form-label' %>
+  <%= select_tag 'workout_plan[day]', options_for_select(Date::DAYNAMES), class: 'form-control col-2 d-inline' %>
+  
+  <br/>
+  <% 4.times do |i| %>
+    <%= label_tag  "workout_plan[workouts_attributes[#{i}][name]]", "Workout #{i+1} Name"%>
+    <%= text_field_tag  "workout_plan[workouts_attributes[#{i}][name]]", '', class: 'form-control'%>
+    <%= label_tag  "workout_plan[workouts_attributes[#{i}][sets]]", "Workout #{i+1} Sets"%>
+    <%= text_field_tag  "workout_plan[workouts_attributes[#{i}][sets]]", '', class: 'form-control'%>
+    <%= label_tag  "workout_plan[workouts_attributes[#{i}][reps]]", "Workout #{i+1} Reps"%>
+    <%= text_field_tag  "workout_plan[workouts_attributes[#{i}][reps]]", '', class: 'form-control'%>
+  <br/>
+  <% end %>
+  <%= submit_tag 'Save Changes', class: 'btn btn-primary' %>
+  <%= link_to 'Cancel', workout_plans_path, class: 'btn btn-secondary' %>
+
+
+<% end %>

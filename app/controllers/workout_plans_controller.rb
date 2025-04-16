@@ -29,6 +29,13 @@ class WorkoutPlansController < ApplicationController
     redirect_to workout_plans_path
   end
 
+  def create
+    puts params.inspect
+    @workout_plan = WorkoutPlan.create!(workout_plan_params)
+    flash[:notice] = "Workout Plan was successfully created."
+    redirect_to workout_plans_path
+  end
+
 
 
   def workout_plan_params
