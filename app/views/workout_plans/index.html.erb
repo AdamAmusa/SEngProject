@@ -18,6 +18,9 @@
  <thead>
     <tr>
       <th>
+      Completion
+      </th>
+      <th>
       <%= link_to 'Days', workout_plans_path({sort_by: 'day'}),
                       id: 'title_header', class: ('bg-warning hilite' if @sort_by == 'day') %>
       </th>
@@ -38,6 +41,13 @@
  <tbody>
  <% @workout_plans.each do |workout_plan| %>
   <tr class = "<%= 'bg-warning hilite' if Date.today.strftime('%A') == workout_plan.day %>">
+  <td>
+  <%= form_for workout_plan, method: :patch do |f| %>
+    <%= f.label :completed, "Complete Plan", class: 'form-check-label', style: 'font-size: 30px;'%>
+    <%= f.check_box :completed, class: 'form-check-input'%>
+    <%= f.submit 'Update', class: 'btn btn-secondary'%>
+    <% end%>      
+  </td>
   <td >
     <%= link_to workout_plan.day, workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>  
   </td>
@@ -47,7 +57,6 @@
      <%= link_to "#{excercise.sets} x #{excercise.reps}", workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>
   </td>  
   <%end %>
-  
   </tr>     
 <% end %> 
  </tbody>

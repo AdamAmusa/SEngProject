@@ -62,7 +62,7 @@ class WorkoutPlansController < ApplicationController
   end
 
   def workout_plan_params
-    params.require(:workout_plan).permit(:day, workouts_attributes: [:id, :name, :sets, :reps, :_destroy])
+    params.require(:workout_plan).permit(:day, :completed, workouts_attributes: [:id, :name, :sets, :reps, :_destroy])
   end
 
 end
