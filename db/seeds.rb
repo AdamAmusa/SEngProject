@@ -10,14 +10,14 @@
 WorkoutPlan.destroy_all
 Workout.destroy_all
 
-# Create workout plans and their workouts in one go
+
 WorkoutPlan.create!(
-  day: 'Monday',
+  day: 'Wednesday',
   workouts_attributes: [
-    { name: 'Push-ups', sets: 5, reps: 10 },
-    { name: 'Sit-ups', sets: 1, reps: 50 }, 
     { name: 'Pull-ups', sets: 2, reps: 5 },
+    { name: 'Sit-ups', sets: 1, reps: 50 },
     { name: 'Dips', sets: 5, reps: 10 },
+    { name: 'Deadlift', sets: 10, reps: 5}
   ]
 )
 
@@ -32,14 +32,15 @@ WorkoutPlan.create!(
 )
 
 WorkoutPlan.create!(
-  day: 'Wednesday',
+  day: 'Monday',
   workouts_attributes: [
+    { name: 'Push-ups', sets: 5, reps: 10 },
+    { name: 'Sit-ups', sets: 1, reps: 50 }, 
     { name: 'Pull-ups', sets: 2, reps: 5 },
-    { name: 'Sit-ups', sets: 1, reps: 50 },
     { name: 'Dips', sets: 5, reps: 10 },
-    { name: 'Deadlift', sets: 10, reps: 5}
   ]
 )
+
 
 WorkoutPlan.create!(
   day: 'Thursday',
@@ -53,6 +54,16 @@ WorkoutPlan.create!(
 )
 
 WorkoutPlan.create!(
+  day: 'Saturday',
+  workouts_attributes: [
+    { name: 'Dips', sets: 5, reps: 10 },
+    { name: 'Pull-ups', sets: 2, reps: 5 },
+    { name: 'Dips', sets: 5, reps: 10 },
+    { name: 'Deadlift', sets: 10, reps: 5}
+  ]
+)
+
+WorkoutPlan.create!(
   day: 'Friday',
   workouts_attributes: [
     { name: 'Push-ups', sets: 5, reps: 10 },
@@ -62,15 +73,6 @@ WorkoutPlan.create!(
   ]
 )
 
-WorkoutPlan.create!(
-  day: 'Saturday',
-  workouts_attributes: [
-    { name: 'Dips', sets: 5, reps: 10 },
-    { name: 'Pull-ups', sets: 2, reps: 5 },
-    { name: 'Dips', sets: 5, reps: 10 },
-    { name: 'Deadlift', sets: 10, reps: 5}
-  ]
-)
 
 WorkoutPlan.create!(
   day: 'Sunday',

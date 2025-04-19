@@ -6,6 +6,13 @@
   <% end %>
 </ul>
 
+<%= form_for @workout_plan, method: :patch do |f| %>
+  <div class="mb-3">
+    <%= f.label :completed, "Complete Plan", class: 'form-check-label', style: 'font-size: 20px;' %>
+    <%= f.check_box :completed, class: 'form-check-input' %>
+    <%= f.submit 'Confirm', class: 'btn btn-secondary' %>
+  </div>
+<% end %>
 
 <div class="row">
   <%= link_to 'Edit', edit_workout_plan_path(@workout_plan), :class => 'btn btn-primary col-2' %>
@@ -15,6 +22,8 @@
       class: 'btn btn-danger col-2'%>
   <%= link_to 'Back to Schedule', workout_plans_path, :class => 'btn btn-primary col-2' %>
 </div>
+
+ 
 
 <% flash.each do |key, message| %>
   <div class "alert alert"-<%= key == 'notice' ? 'success' : 'danger' %>">

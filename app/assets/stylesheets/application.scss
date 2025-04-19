@@ -16,7 +16,10 @@
 
  @import "bootstrap";
 
-
+.completed-workout {
+  opacity: 0.6;
+  color: grey;
+}
 
 .table {
   width: 100%;

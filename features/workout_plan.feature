@@ -1,4 +1,4 @@
-Feature: Workout Plan creation and other functionality
+Feature: Workout Plan CRUD and Filtering
 
 Background: workout plans in database
 
@@ -59,8 +59,6 @@ Background: workout plans in database
     Given I am on the workout plans page
     When I follow "Days"  
     Then I should see "Monday" before "Tuesday"
-
-    
 
     
 

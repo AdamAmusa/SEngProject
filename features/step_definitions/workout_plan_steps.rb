@@ -7,13 +7,23 @@ Given(/the following workout plans exist/) do |workout_plans_table|
   end
 end
 
-
 Then(/I should see "(.*)" before "(.*)"/) do |_e1, _e2|
   table = find('table#workout_plans')
   content = table.text
   expect(content.index(_e1)).to be <content.index(_e2)
 end
 
+
+Then(/(.*) row should (not )?be grey/) do |day, _no|
+  table = find('table#workout_plans')
+  content = table.find('tr', text: day)
+  if _no
+    expect(content[:class]).not_to include('completed-workout')
+  else
+    expect(content[:class]).to include('completed-workout')
+  end
+end
+      
 
 Then(/^I should (not )?see the following workout plans: (.*)$/) do |_no, _workout_plan_list| 
   table = find('table#workout_plans')
@@ -27,8 +37,6 @@ Then(/^I should (not )?see the following workout plans: (.*)$/) do |_no, _workou
       end
     end
 end
-
-
 
 When(/I (un)?check the following days: (.*)/) do |_uncheck, _days_list|
   _days_list.split(',').each do |day|

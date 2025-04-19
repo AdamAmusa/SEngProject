@@ -20,9 +20,13 @@ class WorkoutPlansController < ApplicationController
 
   def update
     @workout_plan = WorkoutPlan.find params[:id]
-    @workout_plan.update(workout_plan_params)
-    flash[:notice] = "Workout Plan was successfully updated"
-    redirect_to workout_plan_path(@workout_plan)
+    if @workout_plan.update(workout_plan_params)
+      flash[:notice] = "Workout Plan was successfully updated"
+      redirect_to workout_plan_path(@workout_plan)
+    else
+      flash[:alert] = "Failed to update Workout Plan"
+      render :edit
+    end
   end
 
   def destroy
