@@ -1,19 +1,61 @@
 <%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track': 'reload'  %>
 <h2>Workout Plan</h2>
-<table class="table table-striped col-md-12">
+
+<%= form_tag workout_plans_path, method: :get, id: 'days_form' do %>
+  <% day_order = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday] %>
+  <% day_order.each do |day| %>
+    <div class="form-check form-check-inline">
+      <%= label_tag "days[#{day}]", day, class: 'form-check-label' %>
+        <%= check_box_tag "days[#{day}]", "1", (@days_to_show_hash.include?(day)),
+          class: 'form-check-input'%>
+      </div>
+  <% end %>
+  <%= submit_tag 'Refresh', id: 'days_submit', class: 'btn btn-primary' %>
+<%end%>
+
+
+<table class="table table-striped table-bordered col-md-12" id = "workout_plans">
  <thead>
     <tr>
-      <th>Schedule</th>
+      <th>
+      <%= link_to 'Days', workout_plans_path({sort_by: 'day'}),
+                      id: 'title_header', class: ('bg-warning hilite' if @sort_by == 'day') %>
+      </th>
+      <th>
+      Excercise 1
+      </th>
+       <th>
+      Excercise 2
+      </th>
+       <th>
+      Excercise 3
+      </th>
+       <th>
+      Excercise 4
+      </th>
     </tr>
  </thead>
  <tbody>
  <% @workout_plans.each do |workout_plan| %>
-  <tr>
-  <td class = "<%= 'bg-warning hilite' if Date.today.strftime('%A') == workout_plan.day %>">
-  <%= link_to workout_plan.day, workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>  
- </td>       
+  <tr class = "<%= 'bg-warning hilite' if Date.today.strftime('%A') == workout_plan.day %>">
+  <td >
+    <%= link_to workout_plan.day, workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>  
+  </td>
+  <% workout_plan.workouts.each do |excercise| %>
+  <td>
+     <%= link_to excercise.name, workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>
+     <%= link_to "#{excercise.sets} x #{excercise.reps}", workout_plan_path(workout_plan), class: 'w-100 d-block text-dark text-decoration-none'%>
+  </td>  
+  <%end %>
+  
   </tr>     
 <% end %> 
  </tbody>
 </table>
 <%= link_to 'Add new workout plan', new_workout_plan_path, :class => 'btn btn-primary' %>
+
+<% flash.each do |key, message| %>
+  <div class = "alert alert"-<%= key == 'notice' ? 'success' : 'danger' %>">
+    <%= message %>
+  </div>
+<% end %>    
